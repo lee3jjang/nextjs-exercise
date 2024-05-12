@@ -1,3 +1,4 @@
+import { Tables } from "../../../supabase/database.types";
 import { supabase } from "../lib/initSupabase";
 
 export default async function Page() {
@@ -18,9 +19,27 @@ export default async function Page() {
 async function testSupabase() {
   "use server";
 
-  const { data } = await supabase.functions.invoke("hello-world", {
-    body: { name: "Functions" },
-  });
+  // Invoke edge function
+  // const { data } = await supabase.functions.invoke("hello-world", {
+  //   body: { name: "Functions" },
+  // });
+  // console.log(data);
 
-  console.log(data);
+  // Query countries
+  // const { data } = await supabase
+  //   .from("countries")
+  //   .select("*")
+  //   .eq("continent", "Africa")
+  //   .returns<Tables<"countries">[]>();
+  // console.log(data);
+
+  // Insert
+  // const { error } = await supabase
+  //   .from("person")
+  //   .insert({ name: "sangjin", age: 36 });
+  // console.log(error);
+
+  // Delete
+  // const { error } = await supabase.from("person").delete().eq("id", 5);
+  // console.log(error);
 }
