@@ -1,4 +1,4 @@
-import { Tables } from "../../../supabase/database.types";
+// import { Tables } from "../../../supabase/database.types";
 import { supabase } from "../lib/initSupabase";
 
 export default async function Page() {
@@ -42,4 +42,32 @@ async function testSupabase() {
   // Delete
   // const { error } = await supabase.from("person").delete().eq("id", 5);
   // console.log(error);
+
+  // Sign Up
+  // const { data, error } = await supabase.auth.signUp({
+  //   email: "lee3jjang@naver.com",
+  //   password: "123123",
+  // });
+  // console.log("data", data);
+  // console.log("error", error);
+
+  // Sign In
+  const {
+    data: { session },
+  } = await supabase.auth.signInWithPassword({
+    email: "lee3jjang@naver.com",
+    password: "123123",
+  });
+  console.log("session", session);
+
+  // setSession
+  // const {} = await supabase.auth.setSession({
+  //   access_token: session?.access_token ?? "",
+  //   refresh_token: session?.refresh_token ?? "",
+  // });
+
+  // ...
+  const { data, error } = await supabase.auth.getUser();
+  console.log("data", data);
+  console.log("error", error);
 }
