@@ -1,0 +1,80 @@
+:root {
+  --padding: 10px 10px;
+  --border-radius: 5px;
+  --primary-bg-color: grey;
+  --secondary-bg-color: #ddd;
+  --primary-color: white;
+  --secondary-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  border: 1px solid black;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.field-container {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+}
+
+.field-container label {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.field-container input {
+  background-color: var(--secondary-bg-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  color: var(--secondary-color);
+  flex-grow: 15;
+}
+
+.field-container input[name="name"] {
+  margin-bottom: 5px;
+}
+
+.form-actions {
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.button-group {
+  display: flex;
+  width: 35%;
+  column-gap: 5px;
+}
+
+.submit {
+  background-color: #1976d2;
+  color: var(--primary-color);
+}
+
+.cancel {
+  background-color: red;
+  color: var(--primary-color);
+}
+
+.button {
+  width: 100%;
+  padding: 5px 2px;
+  border-radius: var(--border-radius);
+}

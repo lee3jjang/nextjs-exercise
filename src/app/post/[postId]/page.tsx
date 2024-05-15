@@ -13,7 +13,7 @@ export default async function PostDetail({ params: { postId } }: Props) {
   if (!post) throw Error("Unreachable");
 
   return (
-    <Box style={{ padding: "40px 50px" }}>
+    <>
       <Box
         display="flex"
         alignItems="center"
@@ -30,6 +30,6 @@ export default async function PostDetail({ params: { postId } }: Props) {
         source={post.content}
         style={{ whiteSpace: "pre-wrap" }}
       />
-    </Box>
+    </>
   );
 }

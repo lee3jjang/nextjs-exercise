@@ -3,9 +3,9 @@
 import { posts } from "@/app/data/data";
 import { Box, Button, FormControl, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import MDEditor from "@uiw/react-md-editor";
 import { Post } from "@/app/data/types";
 import { z } from "zod";
+import MDEditor from "@uiw/react-md-editor";
 
 const ZPost = z.object({
   title: z.string(),
@@ -23,18 +23,20 @@ export default function PostEdit({ params: { postId } }: Props) {
   const [content, setContent] = useState(post.content);
 
   return (
-    <Box
-      style={{ padding: "40px 50px" }}
-      display="flex"
-      flexDirection="column"
-      rowGap={2}
-    >
+    <>
       <Typography variant="h5">포스트 수정</Typography>
       <form action={action}>
         <TextField
           value={title}
           onChange={({ target: { value } }) => setTitle(value)}
           placeholder="제목을 입력하세요."
+        />
+        <input
+          name="content"
+          type="text"
+          placeholder="test"
+          hidden
+          value={content}
         />
         <MDEditor
           value={content}
@@ -47,10 +49,11 @@ export default function PostEdit({ params: { postId } }: Props) {
           확정
         </Button>
       </form>
-    </Box>
+    </>
   );
 
-  function action() {
+  function action(formData: FormData) {
+    console.log(formData.get("content"));
     const parsedPost = ZPost.parse({ title, content });
     console.log(parsedPost);
   }

@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import {
   AppBar,
+  BottomNavigation,
+  BottomNavigationAction,
   Box,
   CssBaseline,
   Drawer,
@@ -19,6 +21,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import SportsHandballIcon from "@mui/icons-material/SportsHandball";
+import PersonIcon from "@mui/icons-material/Person";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -80,10 +84,58 @@ export default function RootLayout({
                   <ListItemText primary="포스트" />
                 </ListItemButton>
               </ListItem>
+              <ListItem>
+                <ListItemButton
+                  onClick={() => {
+                    router.push("/person/create");
+                    setOpen(false);
+                  }}
+                >
+                  <ListItemIcon>
+                    <PersonIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="사람" />
+                </ListItemButton>
+              </ListItem>
+              <ListItem>
+                <ListItemButton
+                  onClick={() => {
+                    router.push("/exercise");
+                    setOpen(false);
+                  }}
+                >
+                  <ListItemIcon>
+                    <SportsHandballIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="연습" />
+                </ListItemButton>
+              </ListItem>
             </List>
           </Box>
         </Drawer>
-        {children}
+        <Box style={{ padding: "40px 50px" }}>{children}</Box>
+        <footer
+          style={{
+            position: "absolute",
+            width: "100%",
+            bottom: 0,
+          }}
+        >
+          <BottomNavigation showLabels style={{ backgroundColor: "#6a5acd" }}>
+            <BottomNavigationAction
+              href="/"
+              style={{ color: "#ddd" }}
+              label="홈"
+              icon={<HomeIcon />}
+            />
+            <BottomNavigationAction
+              href="/person/create"
+              style={{ color: "#ddd" }}
+              label="사람"
+              icon={<PersonIcon />}
+            />
+          </BottomNavigation>
+        </footer>
       </body>
     </html>
   );
