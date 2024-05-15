@@ -3,13 +3,13 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {
-  console.log("Before updateSession Next");
+  // console.log("Before updateSession Next");
   let response = NextResponse.next({
     request: {
       headers: request.headers,
     },
   });
-  console.log("After updateSession Next");
+  // console.log("After updateSession Next");
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
