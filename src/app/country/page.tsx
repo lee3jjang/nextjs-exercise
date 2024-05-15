@@ -52,22 +52,32 @@ async function testSupabase() {
   // console.log("error", error);
 
   // Sign In
-  const {
-    data: { session },
-  } = await supabase.auth.signInWithPassword({
-    email: "lee3jjang@naver.com",
-    password: "123123",
-  });
-  console.log("session", session);
-
-  // setSession
-  // const {} = await supabase.auth.setSession({
-  //   access_token: session?.access_token ?? "",
-  //   refresh_token: session?.refresh_token ?? "",
+  // const {
+  //   data: { session },
+  // } = await supabase.auth.signInWithPassword({
+  //   email: "lee3jjang@naver.com",
+  //   password: "123123",
   // });
+  // console.log("session", session);
 
-  // ...
-  const { data, error } = await supabase.auth.getUser();
-  console.log("data", data);
-  console.log("error", error);
+  // Download File
+  // const { data, error } = await supabase.storage
+  //   .from("photo")
+  //   .download("YHS2091.jpg");
+  // console.log(data);
+  // console.log(error);
+
+  // Copy File
+  // const { data, error } = await supabase.storage
+  //   .from("photo")
+  //   .copy("YHS2091.jpg", "private/my.jpg");
+  // console.log(data);
+  // console.log(error);
+
+  // Create Signed URL
+  const { data, error } = await supabase.storage
+    .from("photo")
+    .createSignedUrl("YHS2091.jpg", 10);
+  console.log(data);
+  console.log(error);
 }
