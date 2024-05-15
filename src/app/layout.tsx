@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -47,7 +48,7 @@ export default function RootLayout({
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6">내 블로그</Typography>
+            <Typography variant="h6">블로그</Typography>
           </Toolbar>
         </AppBar>
         <Drawer open={open} onClose={() => setOpen(false)}>
@@ -64,6 +65,19 @@ export default function RootLayout({
                     <HomeIcon />
                   </ListItemIcon>
                   <ListItemText primary="홈" />
+                </ListItemButton>
+              </ListItem>
+              <ListItem>
+                <ListItemButton
+                  onClick={() => {
+                    router.push("/post");
+                    setOpen(false);
+                  }}
+                >
+                  <ListItemIcon>
+                    <BorderColorIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="포스트" />
                 </ListItemButton>
               </ListItem>
             </List>

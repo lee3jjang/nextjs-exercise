@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/app/constants";
-import { TUser } from "@/app/types";
+import { TUser } from "@/app/data/types";
 import { notFound } from "next/navigation";
 
 export default async function User({

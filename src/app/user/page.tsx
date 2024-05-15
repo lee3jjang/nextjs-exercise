@@ -1,4 +1,4 @@
-import { TUser } from "../types";
+import { TUser } from "../data/types";
 import { BASE_URL } from "../constants";
 import Link from "next/link";
 
