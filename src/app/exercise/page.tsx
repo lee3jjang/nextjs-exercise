@@ -1,9 +1,5 @@
-import MyButton from "./components/my-button";
+import Dnd from "./components/dnd/dnd";
 
-export default async function Exercise() {
-  return (
-    <section>
-      <MyButton />
-    </section>
-  );
+export default function Exercise() {
+  return <section></section>;
 }
