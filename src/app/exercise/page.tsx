@@ -1,5 +1,5 @@
-import Dnd from "./components/dnd/dnd";
+import Feed from "./components/feed";
 
 export default function Exercise() {
-  return <section></section>;
+  return <Feed />;
 }
