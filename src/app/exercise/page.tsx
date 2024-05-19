@@ -1,5 +1,5 @@
-import Feed from "./components/feed";
+import Cards from "./components/cards";
 
 export default function Exercise() {
-  return <Feed />;
+  return <Cards />;
 }
