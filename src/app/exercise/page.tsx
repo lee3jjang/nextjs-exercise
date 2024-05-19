@@ -1,5 +1,5 @@
-import Cards from "./components/cards";
+import Scroll from "./components/scroll";
 
 export default function Exercise() {
-  return <Cards />;
+  return <Scroll />;
 }
